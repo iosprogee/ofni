@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>InfO</title>
+  <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
+  <link href="//fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap" rel="stylesheet">
+  <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.0/styles/a11y-light.min.css" rel="stylesheet">
+
+<style>
+  .markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1em 1.4em;
+  }
+  .markdown-body table { display: table; }
+  .markdown-body pre {  border: 1px solid #ddd; }
+  .big{ font-size: 6em; }
+  .blinker{opacity:1;animation:terminalLoader 1s linear infinite}
+  @keyframes terminalLoader{0%{opacity:0}25%{opacity:.5}50%{opacity:1}75%{opacity:.5}100%{opacity:0}}
+  .blue { color: #0d47a1; }
+
+  @media (max-width: 767px) {
+    .markdown-body { padding: .8em 1em;}
+    .big{ font-size: 6em; }
+  }
+
+</style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id="content"></div>
+  </article>
+
+  <script src="//cdn.jsdelivr.net/npm/marked/marked.min.js"></script> 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.0/highlight.min.js"></script>
+
+  <script>
+    var qeri = (function(a) {
+      if (a == "") return {};
+      var b = {};
+      for (var i = 0; i < a.length; ++i){
+        var p=a[i].split('=', 2);
+        if (p.length == 1) b[p[0]] = ""
+        else b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+      }
+      return b;
+    })(window.location.search.substr(1).split('&'));
+    var filename = (qeri['f'] || "index") + '.md';
+    //console.log(`loding:${filename}`);
+
+    fetch(filename)
+      .then(res => res.text())
+      .then(txt => {
+        document.getElementById('content').innerHTML = marked(txt);
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
+        console.log('fetched!');
+        runJS();
+
+      });
+
+    function runJS(){ //execute script on the MD if exist
+      if(document.getElementById('jsTAG')){ 
+        var jsScript = document.getElementById('jsTAG').innerHTML;  // "alert('HellO'); var x=100";
+        var jsExcScr = new Function (jsScript);
+        try {
+          return (jsExcScr());
+        }
+        catch(err) {
+          console.log(`Error:${err.message}`);
+        }        
+      }    
+    }      
+
+    window.addEventListener('load',function(){   
+      window.setTimeout(function (){  //console.log(`loding:${file}`);
+      }, 0);
+    });  //eo window.addEventListener('load')  
+
+/*
+
+  async function getFile(filename) {
+    var response = await fetch(filename);
+    var text = await response.text();
+    return text;
+  }
+
+  getFile(filename).then( txt => {
+    document.getElementById('content').innerHTML = marked(txt);
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    runJS();
+  }); 
+
+*/
+
+
+  </script>
+
+</body>
+</html>
