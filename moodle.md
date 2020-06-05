@@ -6,14 +6,10 @@
  $ pip3 install ansible
  $ ansible --version
  $ brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
-
 ```
-#### list files and folders 
+#### lamp
 ```
- $ gdrive list --query " 'root' in parents"
- $ gdrive list --query " '1xKp1cu7zv7SoZQLj-l_vP-nva0BXajZf' in parents"
 ```
-#### install
+#### moodle
 ```
- $ ~/go/bin/gdrive upload -p 1xKp1cu7zv7SoZQLj-l_vP-nva0BXajZf -r info
 ```
