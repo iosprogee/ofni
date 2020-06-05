@@ -8,7 +8,8 @@
 >  **enable prompt password when lid closed**    
 >  - system preference
 >  - security & privacy
->  - require password immediately      
+>  - require password immediately    
+  
 >  **enable 3 finger dragging**    
 >  - system preference
 >  - accessibility
