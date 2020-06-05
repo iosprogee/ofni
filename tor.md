@@ -1,5 +1,3 @@
-#### Linux default Tor proxy port is 9050
-curl --socks5-hostname localhost:9050 https://check.torproject.org
 
 #### install
 ```
@@ -22,9 +20,14 @@ curl --socks5-hostname localhost:9050 https://check.torproject.org
 >    forward-socks5t / 127.0.0.1:9050 .
 > ```
 
-#### start or run () the services
+#### start(run & start @boot) or run(one time only) the services
 ```
-    $ brew services start tor
-    $ brew services start polipo
-    $ brew services start privoxy
+    $ brew services [start|run] tor
+    $ brew services [start|run] polipo
+    $ brew services [start|run] privoxy
 ```    
+
+#### unix default Tor port (9050)
+```
+    $ curl --socks5-hostname localhost:9050 https://check.torproject.org
+```
