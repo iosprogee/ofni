@@ -11,6 +11,10 @@
   $ pip3 install OpenCobolIDE --upgrade
   $ openCobolIde
 ```
+####  compile hello.cbl output executable to folder bin
+```
+  $ cobc -free -x -o bin/helloworld hello.cbl
+```
 #### looper  
 ```
   IDENTIFICATION DIVISION.
