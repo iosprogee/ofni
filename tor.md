@@ -31,3 +31,5 @@
 ```
     $ curl --socks5-hostname localhost:9050 https://check.torproject.org
 ```
+
+tail -f /usr/local/var/log/tor.log  
