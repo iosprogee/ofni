@@ -12,11 +12,11 @@
 	- click activate cloud shell
 	- on cloud shell type
 ```  
-      $gcloud app create [enter]
+  $gcloud app create [enter]
 ```  
   - type 1 [enter] for asia-east2(hongkong) region
 
-[setting the region](https://cloud.google.com/appengine/docs/locations for) 
+##### [setting the region](https://cloud.google.com/appengine/docs/locations for) 
 
 #### deploy (using gcloud)
 ```
@@ -36,7 +36,6 @@
  $ gcloud auth list
  $ gcloud config list
  $ gcloud info
- $ 
  $ gcloud config set account <io...@gmail>
  $ gcloud auth login
  $ gcloud projects list
