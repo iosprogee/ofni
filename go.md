@@ -1,4 +1,9 @@
-#### [go lang](https://www.digitalocean.com/community/tutorials/how-to-install-go-and-set-up-a-local-programming-environment-on-macos)
+#### [termux go](https://teachwithf.blogspot.com/2018/12/golang-install-in-android-using-termux.html)
+```
+  $ pkg install golang
+```
+
+#### [osx go](https://www.digitalocean.com/community/tutorials/how-to-install-go-and-set-up-a-local-programming-environment-on-macos)
 ```
  brew doctor
  brew install golang

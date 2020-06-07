@@ -11,7 +11,7 @@
 >   HiddenServicePort 3000 127.0.0.1:80
 > ```
 ```
-  # mkdir if forlder doesnt exist
+  # create folder if doesn't exist
   $ mkdir -p $PREFIX/usr/local/var/lib/tor/hidden_service   
 
   # start tor & get onion adrs

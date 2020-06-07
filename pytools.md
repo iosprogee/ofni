@@ -11,3 +11,9 @@
   cat cat Result/<url>/cms.json
 ```
 
+#### [subfinder](https://github.com/projectdiscovery/subfinder)   
+```
+  go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
+  go get -u -v github.com/projectdiscovery/subfinder/cmd/subfinder
+
+```
