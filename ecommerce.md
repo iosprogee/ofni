@@ -60,16 +60,51 @@
 #### bigcommerce  
   - [34,876](https://trends.builtwith.com/shop/BigCommerce/United-States)  
   - [22 ph](https://trends.builtwith.com/websitelist/BigCommerce/Philippines)  
-      danah.ph  
-      farmery.ph  
+      https://medicalsuppliesdepot.com.ph  
+      https://farmery.ph/   ok
+      https://thepinkshoppe.com/checkout
+
+      https://japanichi.com.ph/
+      https://freshlypicked.sg/
+
+      crown.ph   
+      kalmcosmetics.ph
+      negosyonow.com
+      tatsunoparts.com
+      thepinkshoppe.com
+      thingsremembered.com.ph
+      toykingdom.ph
+
       iprints.ph  
-      downtoearth.ph  
-      japanichi.com.ph  
+      downtoearth.ph    
       aquasphereswim.com.ph  
       sakura.ph  
       eazyfashion.com  
       luckydollstore.com  
-      medicalsuppliesdepot.com.ph  
+      danah.ph  
+
+      **sg**
+      babyorganix.com.sg    
+      store.brewerkz.com   
+      bonumlife.com.sg     
+      beadsandnails.com    
+      buybbcream.com    
+      bscoffee.net    
+      craftbeer.sg    
+      cheeseshop.sg    
+      creamhaus.sg    
+      creativeideas.com.sg 
+      naturaworks.com   
+      kiancontract.com.sg 
+      tank.com.sg     
+      nordicexposure.com.sg 
+      thelittlemarket.sg    
+      thelearningtee.com    
+      thejerseyshop.sg     
+      thecostumebase.com    
+      tmart.com.sg    
+      trinketcove.com
+
 
   - carewell.com  
 
@@ -153,6 +188,5 @@ fi
 
 
 ```  
-
 
 
