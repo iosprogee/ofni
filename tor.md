@@ -1,7 +1,6 @@
-#### [termux](https://medium.com/alize-in-cryptoland/how-to-run-a-secure-chat-behind-tor-off-of-your-android-phone-be83a678693d
-)   
+#### [termux](https://medium.com/alize-in-cryptoland/how-to-run-a-secure-chat-behind-tor-off-of-your-android-phone-be83a678693d)  
 ```
-  $ pkg upgrade && pkg install -y nano git nodejs tor torsocks curl
+  $ pkg upgrade && pkg install -y nano git nodejs tor torsocks curl   
   $ ip a | grep 192  
   $ nano $PREFIX/etc/tor/torrc  
 ```
