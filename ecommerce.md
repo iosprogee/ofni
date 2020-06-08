@@ -10,7 +10,26 @@
 
     https://japanichi.com.ph/  
     https://freshlypicked.sg/  
+```
+    ##### [script manager](https://recorder-sandbox.mybigcommerce.com/manage/script-manager)
+```
+//pfont
+<script>
+  console.log('pFont');
+  document.getElementsByTagName('p').forEach((i)=>{
+    if(i.classList=='') i.style.fontSize = "large";
+  })
+</script>
+
+//footCopyHide
+<script>
+  document.querySelectorAll('div.footer-copyright').forEach((i)=>{
+   i.style.display = "none"; 
+  })
+</script>
+```
 <!--
+  ups 1ZR095E40400831514 may25,may27,may29,may30 mitor 
       crown.ph   
       kalmcosmetics.ph
       negosyonow.com
