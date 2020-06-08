@@ -1,3 +1,4 @@
+#### [go how-to](https://github.com/103cuong/fly-with-go)
 #### [termux go](https://teachwithf.blogspot.com/2018/12/golang-install-in-android-using-termux.html)
 ```
   $ pkg install golang
