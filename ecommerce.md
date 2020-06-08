@@ -27,8 +27,26 @@
      i.style.display = "none"; 
     })
   </script>
+
+  //onPrint
+ <script>
+  var beforePrint = function() {
+    document.querySelectorAll('footer.footer').forEach((i)=>{
+     i.style.display = "none"; 
+    })
+    console.log('beforePrinting.');
+  };
+  var afterPrint = function() {
+    document.querySelectorAll('footer.footer').forEach((i)=>{
+     i.style.display = "block"; 
+    })    
+    console.log('afterPrinting');
+  };    
+  window.onbeforeprint = beforePrint;
+  window.onafterprint = afterPrint;
+  </script>
   ```
-  #####[storefront > my themes > advance > edit theme files](https://recorder-sandbox.mybigcommerce.com/manage/storefront-manager/my-themes)  
+  ##### [storefront > my themes > advance > edit theme files](https://recorder-sandbox.mybigcommerce.com/manage/storefront-manager/my-themes)  
   ```
   //Shows HowTo besides Description tab
   //templates > components > products > description_tabs.html
