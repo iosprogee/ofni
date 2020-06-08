@@ -9,8 +9,7 @@
  npm run ts-node scripts/consolePanel.ts
 ```
 
-<pre>
-	<code>
+```
 
  import { TestService } from "../services/TestService";
 
@@ -18,7 +17,6 @@
  import snakeCase from "snakecase-keys";
  import { testInstance } from "../modules/bigcommerce";
  import { numberUtils } from "../shared/utils/numberUtils";
-
 
  const readline = require("readline");
  const rl = readline.createInterface({
@@ -80,6 +78,5 @@
      console.log(subs[0]);
  }
 
-	</code>
-</pre>
+```
 

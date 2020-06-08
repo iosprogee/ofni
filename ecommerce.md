@@ -60,13 +60,16 @@
 #### bigcommerce  
   - [34,876](https://trends.builtwith.com/shop/BigCommerce/United-States)  
   - [22 ph](https://trends.builtwith.com/websitelist/BigCommerce/Philippines)  
-      https://medicalsuppliesdepot.com.ph  
-      https://farmery.ph/   ok
-      https://thepinkshoppe.com/checkout
+  
+    https://carewell.com  
 
-      https://japanichi.com.ph/
-      https://freshlypicked.sg/
+    https://medicalsuppliesdepot.com.ph  
+    https://farmery.ph/  
+    https://thepinkshoppe.com/checkout  
 
+    https://japanichi.com.ph/  
+    https://freshlypicked.sg/  
+<!--
       crown.ph   
       kalmcosmetics.ph
       negosyonow.com
@@ -104,9 +107,7 @@
       thecostumebase.com    
       tmart.com.sg    
       trinketcove.com
-
-
-  - carewell.com  
+-->
 
 #### others  
   - magento  
@@ -116,19 +117,18 @@
 
 #### tools  
 	[what cms](https://whatcms.org/?s=www.penshoppe.com)  
-  [built with](https://builtwith.com/www.penshoppe.com)
+  [built with](https://builtwith.com/www.penshoppe.com)  
 	[cms detection howto](https://whatcms.org/Content-Management-Systems)  
 
 	[website comprehensive report](https://www.cubdomain.com/site/penshoppe.com)  
-  [stat chest](https://www.statchest.com/penshoppe.com.html) 
-  [check page rank](https://checkpagerank.net/check-page-rank.php)
+  [stat chest](https://www.statchest.com/penshoppe.com.html)  
+  [check page rank](https://checkpagerank.net/check-page-rank.php)  
 
-  [way back machine](https://web.archive.org/)
-  [awesome opensource](https://awesomeopensource.com/projects/whois)
+  [way back machine](https://web.archive.org/)  
+  [awesome opensource](https://awesomeopensource.com/projects/whois)  
+
 
 ```
-
-
 #!/bin/bash
 
 clear
@@ -150,15 +150,12 @@ GEOIP=$(curl -A $CURL_UA --silent --connect-timeout $CURL_TIMEOUT http://ip-api.
 LOG_IP=`cat log.csv | cut -d',' -f2 | grep $TARGET_IP | wc -l | sed -e 's/^[ \t]*//'`
 
 
-####
+/* start here */
 TARGET=$(curl --fail -A $CURL_UA -L --write-out "%{url_effective}\n" --silent --connect-timeout $CURL_TIMEOUT --output /dev/null ichoose.ph)
 TARGET_HOST=$(echo $TARGET | cut -d'/' -f3 | cut -d':' -f1)
 GEOIP=$(curl -A $CURL_UA --silent --connect-timeout $CURL_TIMEOUT http://ip-api.com/csv/$TARGET_HOST)
 TARGET_IP=$(echo $GEOIP | cut -d',' -f1 | cut -d '"' -f2)
 TARGET_IP=$(echo $GEOIP | cut -d',' -f15)
-
-
-
 
 echo [INFO] ------TARGET info------
 echo [*] TARGET: $TARGET
@@ -185,8 +182,5 @@ if [[ $TARGET =~ ^https ]]; then
   fi
 fi
 
-
-
-```  
-
+```
 
