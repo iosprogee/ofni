@@ -1,6 +1,6 @@
 #### bigcommerce  
-  - [34,876 {us}](https://trends.builtwith.com/shop/BigCommerce/United-States)  
-  - [22 {ph}](https://trends.builtwith.com/websitelist/BigCommerce/Philippines)  
+  - [34,876{us}](https://trends.builtwith.com/shop/BigCommerce/United-States)  
+  - [22{ph}](https://trends.builtwith.com/websitelist/BigCommerce/Philippines)  
 
     https://carewell.com  
 
@@ -10,24 +10,34 @@
 
     https://japanichi.com.ph/  
     https://freshlypicked.sg/  
-```
-    ##### [script manager](https://recorder-sandbox.mybigcommerce.com/manage/script-manager)
-```
-//pfont
-<script>
-  console.log('pFont');
-  document.getElementsByTagName('p').forEach((i)=>{
-    if(i.classList=='') i.style.fontSize = "large";
-  })
-</script>
 
-//footCopyHide
-<script>
-  document.querySelectorAll('div.footer-copyright').forEach((i)=>{
-   i.style.display = "none"; 
-  })
-</script>
-```
+  ##### [script manager](https://recorder-sandbox.mybigcommerce.com/manage/script-manager)  
+  ```
+  //pfont
+  <script>
+    console.log('pFont');
+    document.getElementsByTagName('p').forEach((i)=>{
+      if(i.classList=='') i.style.fontSize = "large";
+    })
+  </script>
+
+  //footCopyHide
+  <script>
+    document.querySelectorAll('div.footer-copyright').forEach((i)=>{
+     i.style.display = "none"; 
+    })
+  </script>
+  ```
+  #####[storefront > my themes > advance > edit theme files](https://recorder-sandbox.mybigcommerce.com/manage/storefront-manager/my-themes)  
+  ```
+  //Shows HowTo besides Description tab
+  //templates > components > products > description_tabs.html
+  //chaange to below:
+  <!-- <a class="tab-title" href="#tab-warranty">{{lang 'products.warranty'}}</a>  -->
+  <a class="tab-title" href="#tab-warranty">How-To</a>
+
+  ```  
+
 <!--
   ups 1ZR095E40400831514 may25,may27,may29,may30 mitor 
       crown.ph   
@@ -70,7 +80,7 @@
 -->
 
 #### opencart  
-  - [123 {ph}](https://trends.builtwith.com/websitelist/OpenCart/Philippines)  
+  - [123{ph}](https://trends.builtwith.com/websitelist/OpenCart/Philippines)  
       shop.globe.com.ph  
       689properties.com.ph  
       f8photo.ph  
@@ -93,8 +103,8 @@
 
 
 #### shopify   
-  - [909,637 {us}](https://trends.builtwith.com/shop/Shopify/United-States)  
-  - [1,297 {ph}](https://trends.builtwith.com/websitelist/Shopify/Philippines)  
+  - [909,637{us}](https://trends.builtwith.com/shop/Shopify/United-States)  
+  - [1,297{ph}](https://trends.builtwith.com/websitelist/Shopify/Philippines)  
       amrag.com  
       mydomesticity.com  
       widgetcity.com.ph  
@@ -114,7 +124,7 @@
   - [devdocs](https://devdocs.prestashop.com/1.7/basics/introduction/)  
 
 #### prestashop  
-  - [51 {ph}](https://trends.builtwith.com/websitelist/PrestaShop/Philippines)  
+  - [51{ph}](https://trends.builtwith.com/websitelist/PrestaShop/Philippines)  
 <!--  
       farmuraagrivet.ph  
       babyoutlet.ph  
@@ -138,7 +148,7 @@
       [penshoppe](https://www.penshoppe.com/)   
 
 #### tools  
-	[what cms](https://whatcms.org/?s=www.penshoppe.com)  
+  [what cms](https://whatcms.org/?s=www.penshoppe.com)  
   [built with](https://builtwith.com/www.penshoppe.com)  
 	[cms detection howto](https://whatcms.org/Content-Management-Systems)  
 
