@@ -1,0 +1,398 @@
+  <head>
+    <title>Ouibounce example page</title>
+    
+    <!-- external dependencies -->
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<style type="text/css">
+
+/**********************/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/**********************/
+/* main page styles */
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* header styles */
+
+header {
+  background-color: #0082D3;
+  padding: 40px;
+  text-align: center;
+  color: #EDEDF4;
+}
+
+header h1 {
+  font-size: 3em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+header h2 {
+  font-size: 1.1em;
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+/* main content styles */
+/**********************/
+
+
+.container {
+  max-width: 800px;
+  padding: 40px;
+  margin: 0 auto;
+}
+
+.container p {
+  line-height: 1.4em;
+  font-size: 1.1em;
+  font-weight: 300;
+  color: #69696A;
+  max-width: 675px;
+}
+
+.container h2 {
+  color: #0082D3;
+  font-size: 1.6em;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+/* main button styles */
+.container .button {
+  color: white;
+  background-color: #00BC6D;
+  border-radius: 4px;
+  padding: 14px 24px;
+  display: inline-block;
+  margin-top: 30px;
+}
+
+a.button {
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+/* modal */
+
+#ouibounce-modal {
+  font-family: 'Open Sans', sans-serif;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#ouibounce-modal .underlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  cursor: pointer;
+  -webkit-animation: fadein 0.5s;
+  animation: fadein 0.5s;
+}
+#ouibounce-modal .modal {
+  width: 600px;
+  height: 400px;
+  background-color: #f0f1f2;
+  z-index: 1;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 4px;
+  -webkit-animation: popin 0.3s;
+  animation: popin 0.3s;
+}
+#ouibounce-modal .modal-title {
+  font-size: 18px;
+  background-color: #252525;
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  border-radius: 4px 4px 0 0;
+  text-align: center;
+}
+#ouibounce-modal h3 {
+  color: #fff;
+  font-size: 1em;
+  margin: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+#ouibounce-modal .modal-body {
+  padding: 20px 35px;
+  font-size: 0.9em;
+}
+#ouibounce-modal p {
+  color: #344a5f;
+  line-height: 1.3em;
+}
+#ouibounce-modal form {
+  text-align: center;
+  margin-top: 35px;
+}
+#ouibounce-modal form input[type=text] {
+  padding: 12px;
+  font-size: 1.2em;
+  width: 300px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  -webkit-font-smoothing: antialiased;
+}
+#ouibounce-modal form input[type=submit] {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 12px;
+  font-size: 1.1em;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #4ab471;
+  border: none;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+}
+#ouibounce-modal form p {
+  text-align: left;
+  margin-left: 35px;
+  opacity: 0.8;
+  margin-top: 1px;
+  padding-top: 1px;
+  font-size: 0.9em;
+}
+#ouibounce-modal .modal-footer {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+#ouibounce-modal .modal-footer p {
+  text-transform: capitalize;
+  cursor: pointer;
+  display: inline;
+  border-bottom: 1px solid #344a5f;
+}
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes popin {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  85% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@-ms-keyframes popin {
+  0% {
+    -ms-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  85% {
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes popin {
+  0% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  85% {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+  
+</style>
+
+  </head>
+  <body>
+    <header>
+      <h1>Ouibounce</h1>
+      <h2>Increase your landing page conversion rates</h2>
+    </header>
+
+    <div class="container">
+      <p>Ouibounce enables you to display a modal before a user leaves your website, helping you increase your landing page conversion rates. From experience, you can expect a 7% to 15% conversion rate increase - depending on your audience, traffic quality and offer.</p>
+
+      <h2>A powerful library</h2>
+      <p>Ouibounce is incredibly easy to install and it comes with powerful features, helping you control every aspect of the user experience. Visit the GitHup repo to learn more!</p>
+
+      <a href="https://github.com/carlsednaoui/ouibounce" class="button">View Ouibounce on GitHub</a>
+
+      <h2>Interactive demo</h2>
+      <p>To see how Ouibounce works, simply try to close this tab.</p>
+    </div>
+
+    <!-- Ouibounce Modal -->
+    <div id="ouibounce-modal" style="display: none;">
+      <div class="underlay"></div>
+      <div class="modal">
+        <div class="modal-title">
+          <h3>This is a Ouibounce modal</h3>
+        </div>
+
+        <div class="modal-body">
+          <p>Thanks for stoping by!</p>
+          <br>
+          <p>You can style your Ouibounce modal however you see fit. You can also include big buttons, an email capture or just plain text. The sky's the limit!</p>
+          <br>
+          <p>Close this modal by clicking "No Thanks" below or clicking anywhere outside of the modal.</p>
+
+          <form>
+            <input type="text" placeholder="you@email.com">
+            <input type="submit" value="learn more »">
+            <p class="form-notice">*this is a fake form</p>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <p>no thanks</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example page JS        -->
+    <!-- Used to fire the modal -->
+    <script>
+
+!function(e,i){"function"==typeof define&&define.amd?define(i):"object"==typeof exports?module.exports=i(require,exports,module):e.ouibounce=i()}(this,function(){return function(e,i){function n(e,i){return"undefined"==typeof e?i:e}function o(e){var i=24*e*60*60*1e3,n=new Date;return n.setTime(n.getTime()+i),"; expires="+n.toGMTString()}function t(){y.addEventListener("mouseleave",u),y.addEventListener("keydown",r)}function u(e){e.clientY>s||c("viewedOuibounceModal","true")&&!f||(d(),v())}function r(e){b||c("viewedOuibounceModal","true")&&!f||e.metaKey&&76==e.keyCode&&(b=!0,d(),v())}function c(e,i){var n=document.cookie.split("; ").reduce(function(e,i){var n=i.split("=");return e[n[0]]=n[1],e},{});return n[e]===i}function d(){e&&(e.style.display="block"),a()}function a(e){var e=e||{};"undefined"!=typeof e.cookieExpire&&(l=o(e.cookieExpire)),e.sitewide===!0&&(k=";path=/"),"undefined"!=typeof e.cookieDomain&&(p=";domain="+e.cookieDomain),document.cookie="viewedOuibounceModal=true"+l+p+k,y.removeEventListener("mouseleave",u),y.removeEventListener("keydown",r)}var i=i||{},f=i.aggressive||!1,s=n(i.sensitivity,20),m=n(i.timer,1e3),v=i.callback||function(){},l=o(i.cookieExpire)||"",p=i.cookieDomain?";domain="+i.cookieDomain:"",k=i.sitewide===!0?";path=/":"",y=document.getElementsByTagName("html")[0];setTimeout(t,m);var b=!1;return{fire:d,disable:a}}});
+
+
+      // if you want to use the 'fire' or 'disable' fn,
+      // you need to save OuiBounce to an object
+      var _ouibounce = ouibounce(document.getElementById('ouibounce-modal'), {
+        aggressive: true,
+        timer: 0,
+        callback: function() { console.log('ouibounce fired!'); }
+      });
+
+      $('body').on('click', function() {
+        $('#ouibounce-modal').hide();
+      });
+
+      $('#ouibounce-modal .modal-footer').on('click', function() {
+        $('#ouibounce-modal').hide();
+      });
+
+      $('#ouibounce-modal .modal').on('click', function(e) {
+        e.stopPropagation();
+      });
+
+    </script>
+  
+
+</body>
