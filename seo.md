@@ -1,0 +1,5 @@
+#### [back link checker](https://ahrefs.com/backlink-checker)
+#### [cms detector](https://whatcms.org/?s=)
+#### [built with](https://builtwith.com/www.penshoppe.com)
+#### [woo rank](https://www.woorank.com/en/www/circuit.rocks)
+#### [site audit](https://app.neilpatel.com/en/seo_analyzer/site_audit?domain=circuit.rocks&submit=Analyze+Website)
