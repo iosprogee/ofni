@@ -7,11 +7,11 @@
  $ mkdir <projname>
 ```  
   - goto [cloud console](https://console.cloud.google.com) 
-  - select <projname>
+  - select &lt; projname &gt;
   - click activate cloud shell
   - on cloud shell type  
     ```  
-    $gcloud app create [enter]
+    $ gcloud app create [enter]
     ```  
   - type 1 [enter] for asia-east2(hongkong) region
 
