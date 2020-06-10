@@ -31,6 +31,33 @@
     .markdown-body pre { font-size: small; padding: 1em 0; }
   }
 
+.hide{ display:none; }  
+
+/*collapsible*/
+.collapsible {
+  background: #0D47A1;
+  color: white;
+  cursor: pointer;
+  padding: 6px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  font-size: 1.2rem;
+  margin-bottom: 1vh;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.active, .collapsible:hover {
+  background-color: #1565C0;
+}
+.content {
+  padding: 1em 1em 0;
+  display: none;
+  overflow: hidden;
+  background-color: #f6f8fa;
+  margin-bottom: 1vh;
+}
+
 </style>
 </head>
 <body>
@@ -81,17 +108,55 @@
     }      
 
     window.addEventListener('load',function(){   
-      a2TrgtBlnk();
       window.setTimeout(function (){  //console.log(`loding:${file}`);
-      }, 0);
+        runJS();
+        a2TrgtBlnk();
+
+        /*collapsible*/
+        document.querySelectorAll('button.collapsible').forEach((i)=>{  
+          i.addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+              this.innerHTML='<span class="material-icons">keyboard_arrow_right</span>';
+              this.style.marginBottom ='1vh';
+            } else {
+              content.style.display = "block";
+              this.innerHTML='<span class="material-icons">keyboard_arrow_down</span>';
+              this.style.marginBottom = 0;
+            }
+          });
+        });
+        /*collapsible*/
+
+      }, 0);  //eo setTimeout
     });  //eo window.addEventListener('load')  
 
     function a2TrgtBlnk(){
       // markdown {:target="_blank"} doesnt work
       // so transform all anchors to target blank
       var ancor = document.getElementsByTagName('a'); 
-      for (var i in ancor) ancor[i].setAttribute('target', '_blank');     
+      for (var i in ancor) if(typeof ancor[i].setAttribute !== "undefined") ancor[i].setAttribute('target', '_blank');
+
     }
+
+    async function runJS(){
+      var jsScript = await document.getElementById('jsTAG'); 
+      if(document.getElementById('jsTAG')){ //execute script on the MD if exist
+        //jsScript.innerHTML = "alert('HellO'); var x=100";
+        var jsExcScr = new Function (jsScript.innerHTML);
+        try {
+          return (jsExcScr());
+        }
+        catch(err) {
+          console.log(`Error:${err.message}`);
+        }        
+      }    
+    }
+
+
+
 /*
 
   async function getFile(filename) {

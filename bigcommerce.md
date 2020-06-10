@@ -38,11 +38,17 @@
   ```
   //Shows HowTo besides Description tab
   //templates > components > products > description_tabs.html
-  //chaange to below:
+  //change to below:
   <!-- <a class="tab-title" href="#tab-warranty">{{lang 'products.warranty'}}</a>  -->
   <a class="tab-title" href="#tab-warranty">How-To</a>
 
   ```  
+#### call to action when leaving page
+```  
+
+```  
+
+
 
 <!--
   ups 1ZR095E40400831514 may25,may27,may29,may30 mitor 
