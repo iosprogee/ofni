@@ -45,3 +45,28 @@
   $ appcfg.py download_app -A beearvee beearveeBak
   ```
 
+#### php gae
+ ```
+ composer require guzzlehttp/guzzle:~6.0
+ gcloud app deploy --project testerific --version 1
+
+ nano app.yaml
+ ```  
+  ```
+  # dev_appserver.py app.yaml
+  # gcloud app deploy --project barangay --version 1
+
+  #application: testerific
+  #version: 1
+  runtime: php55
+  api_version: 1
+  threadsafe: yes
+
+  handlers:
+  - url: /favicon\.ico
+    static_files: favicon.ico
+    upload: favicon\.ico
+
+  - url: .*
+    script: whatcms.php
+  ```
