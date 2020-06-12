@@ -11,6 +11,8 @@ file:
   scripts > test.ts
 run:
   npm run ts-node scripts/consolePanel.ts
+update:
+  git pull origin gabe/bigcommerce-script  
 */
 import { TestService } from "../services/TestService";
 
@@ -30,29 +32,80 @@ type validCmds = "cust"|"order"|"store"|"subs"|"fake"|"script"|"exit"
 (function r(){
   rl.question('Command: ', async (cmd:string) => {
     //console.log(cmd.split(' '));
-    let command = cmd.split(' ');
-    let arg = command.length>1 ? command[1]:'';
+    var command = cmd.split(' ');
+    let arg = command.length > 1 ? command[1]:'';
     let fnName = command[0] as validCmds;
 
     const map = { cust, order, store, subs, fake, script}
 
     if (fnName == 'exit')  return rl.close();
     //if ("cust order store subs exit".includes(command[0])) await window[fnName]();//await map[command](arg);
+    arg = command.length > 2 ? cmd : command[1];
     await map[fnName]?.(arg);
+    if(typeof map[fnName] === 'undefined' ) console.log('invalid command!');
     r();
   });
 })();
 /*eo getConsoleInput*/
 
+/*
+  script commands:
+  script del 4d31cd85-beae-466a-b46a-6688bf823b44
+  script make galingmo console.log('galingko');
+  script make bchook https://iosprogee.github.io/ofni/bchook.js
+  script make testerific https://testerific.appspot.com/i.js?t=hash_token
+*/
 async function script(arg:string='') {
   const ts = await TestService.getInstance();
   const scripts = await ts.bigcommerceScriptModule.list();
-  if( "0123456789".includes(arg) )  
-    console.log(scripts[Number(`${arg}`)])
-  else if(arg == 'make')
-    console.log('make scripts');
+  arg = arg.trim();
+  //command = arg.includes(' ') ? : arg.split(' '): command;
+
+  if( arg!='' && "0123456789".includes(arg) )
+    { console.log('query:'); console.log(scripts[Number(`${arg}`)]) }
+  else if(arg.includes('make'))
+    await scriptCreate(arg.split(' ')[2],arg.split(' ')[3]);
+  else if( arg.includes('del') ){
+      console.log(`deleting: ${arg.split(' ')[2]}`);  
+      await ts.bigcommerceScriptModule.remove(arg.split(' ')[2]); }
   else 
-    console.log(scripts); 
+    { console.log('all:'); console.log(scripts); }
+}
+
+type validKinds = "src" | "script_tag"
+async function scriptCreate(name:string='Scripter', html:string="console.log('scripter')" ) {
+  const ts = await TestService.getInstance();
+  const store = await ts.storeService.get(ts.storeId);
+  var href = '';
+  let kindred = "script_tag" as validKinds ;
+
+  console.log(`Creating Script ${name}...`);
+  if (html.includes("http")){
+    kindred = "src";
+    href = html;
+    html = '';
+  } else{
+    html = "<script>" + html + "</script>"
+  }
+  console.log(`src: ${href}`);
+  
+  try {
+    await ts.bigcommerceScriptModule.create({
+      name: name,
+      description: "Script created programatically",
+      kind: kindred,
+      html: html,
+      src: href,
+      autoUninstall: false,
+      loadMethod: "default",
+      location: "footer",
+      visibility: "all_pages",
+      consentCategory: "essential",
+    });
+  } catch (err) {
+    console.error(err.response.data);
+  }
+  console.log("Done!!!");
 }
 
 async function cust(arg:string='') {
