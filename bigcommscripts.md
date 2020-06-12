@@ -1,6 +1,11 @@
 ##### [script manager](https://recorder-sandbox.mybigcommerce.com/manage/script-manager)  
 
-
+#### [embed handlebars](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference)
+```
+<script>
+console.log('prod id: {{product.id}}');
+</script>
+```
 #### call to action   
 ```
 <script id="popperoo" type="text/html">
