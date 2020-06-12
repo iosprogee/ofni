@@ -47,7 +47,9 @@
 
 #### php gae
  ```
- composer require guzzlehttp/guzzle:~6.0
+ composer remove guzzlehttp/guzzle:~6.0
+ composer require whatcms/whatcms-php
+
  gcloud app deploy --project testerific --version 1
 
  nano app.yaml

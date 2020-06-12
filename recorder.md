@@ -4,80 +4,139 @@
 ```
  nano ~/recorder/scripts/consolePanel.ts
 ```
+
+```
+/*
+file:
+  scripts > test.ts
+run:
+  npm run ts-node scripts/consolePanel.ts
+*/
+import { TestService } from "../services/TestService";
+
+import faker from "faker";
+import snakeCase from "snakecase-keys";
+import { testInstance } from "../modules/bigcommerce";
+import { numberUtils } from "../shared/utils/numberUtils";
+
+/*getConsoleInput*/
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+type validCmds = "cust"|"order"|"store"|"subs"|"fake"|"script"|"exit"
+
+(function r(){
+  rl.question('Command: ', async (cmd:string) => {
+    //console.log(cmd.split(' '));
+    let command = cmd.split(' ');
+    let arg = command.length>1 ? command[1]:'';
+    let fnName = command[0] as validCmds;
+
+    const map = { cust, order, store, subs, fake, script}
+
+    if (fnName == 'exit')  return rl.close();
+    //if ("cust order store subs exit".includes(command[0])) await window[fnName]();//await map[command](arg);
+    await map[fnName]?.(arg);
+    r();
+  });
+})();
+/*eo getConsoleInput*/
+
+async function script(arg:string='') {
+  const ts = await TestService.getInstance();
+  const scripts = await ts.bigcommerceScriptModule.list();
+  if( "0123456789".includes(arg) )  
+    console.log(scripts[Number(`${arg}`)])
+  else if(arg == 'make')
+    console.log('make scripts');
+  else 
+    console.log(scripts); 
+}
+
+async function cust(arg:string='') {
+  const ts = await TestService.getInstance();
+  //found in: modules > bigcommerce > customer.ts
+  const customers = await ts.bigcommerceCustomerModule.list(); 
+  if(arg == 'len')  
+    console.log(customers.length)
+  else 
+    console.log(customers[0]);
+}
+
+async function order(arg:string='') {
+  const ts = await TestService.getInstance();
+  const orders = await ts.bigcommerceOrderModule.list();
+  console.log(orders[0]);
+}
+
+async function store(arg:string='') {
+  const ts = await TestService.getInstance();
+  const store= await ts.storeService.get(ts.storeId);
+  console.log(store.scope.split(' '));
+}
+
+async function subs(arg:string='') {
+  const ts = await TestService.getInstance();
+  //found in: services > SubscriptionService.ts
+  const subs = await ts.subscriptionService.list(); 
+  if(arg == 'len')  
+    console.log(subs.length)
+  else 
+    console.log(subs[0]);
+}
+
+/*productGenerator*/
+async function fakeMe(arg:string='') {
+  var item = await generateProduct()
+  console.log(item);
+}
+
+async function fake(arg:string='') {
+  await testInstance()
+    .post("/v3/catalog/products", generateProduct())
+    .then((item) => console.log(item))
+    .catch((err) => console.error(err.response.data));
+}
+
+const generateProduct = () => {
+  const images = numberUtils.getVariableSizeArr(1, 3).map(() => ({
+    imageUrl:
+      "https://loremflickr.com/320/240?lock=" + faker.random.number(1084),
+  }));
+
+  const variants = numberUtils.getVariableSizeArr(1, 3).map(() => {
+    const label = faker.random.word();
+    return {
+      sku: faker.random.word(),
+      optionValues: numberUtils.getVariableSizeArr(1, 3).map(() => ({
+        label,
+        optionDisplayName: faker.random.word(),
+      })),
+    };
+  });
+
+  return snakeCase(
+    {
+      name: faker.random.words(2),
+      price: faker.random.number(999),
+      type: "physical",
+      categories: [23],
+      variants,
+      images,
+      weight: 0,
+    },
+    { deep: true },
+  );
+};
+/*eo productGenerator*/
+
+```
+
 #### run:
 ```
  npm run ts-node scripts/consolePanel.ts
-```
-
-```
-
- import { TestService } from "../services/TestService";
-
- import faker from "faker";
- import snakeCase from "snakecase-keys";
- import { testInstance } from "../modules/bigcommerce";
- import { numberUtils } from "../shared/utils/numberUtils";
-
- const readline = require("readline");
- const rl = readline.createInterface({
-   input: process.stdin,
-   output: process.stdout
- });
-
- type validCmds = "cust" | "order" | "store" |"subs" | "exit"
-
- (function r(){
-   rl.question('Command: ', async (cmd:string) => {
-     //console.log(cmd.split(' '));
-     let command = cmd.split(' ');
-     let arg = command.length>1 ? command[1]:'';
-     let fnName = command[0] as validCmds;
-
-     const map = {
-       cust,
-       order,
-       store,
-       subs
-     }
-     if (fnName == 'exit')  return rl.close();
-     //if ("cust order store subs exit".includes(command[0])) await window[fnName]();//await map[command](arg);
-     await map[fnName]?.(arg);
-     r();
-   });
- })();
-
- async function cust(arg:string='') {
-   const ts = await TestService.getInstance();
-   //found in: modules > bigcommerce > customer.ts
-   const customers = await ts.bigcommerceCustomerModule.list(); 
-   if(arg == 'len')  
-     console.log(customers.length)
-   else 
-     console.log(customers[0]);
- }
-
- async function order(arg:string='') {
-   const ts = await TestService.getInstance();
-   const orders = await ts.bigcommerceOrderModule.list();
-   console.log(orders[0]);
- }
-
- async function store(arg:string='') {
-   const ts = await TestService.getInstance();
-   const store= await ts.storeService.get(ts.storeId);
-   console.log(store.scope.split(' '));
- }
-
- async function subs(arg:string='') {
-   const ts = await TestService.getInstance();
-   //found in: services > SubscriptionService.ts
-   const subs = await ts.subscriptionService.list(); 
-   if(arg == 'len')  
-     console.log(subs.length)
-   else 
-     console.log(subs[0]);
- }
-
 ```
 
 #### splash page before user leaves   

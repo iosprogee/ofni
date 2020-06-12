@@ -1,8 +1,10 @@
 ##### [script manager](https://recorder-sandbox.mybigcommerce.com/manage/script-manager)  
 
+
+#### call to action   
 ```
-<script id="popModal" type="text/html">
-<div id="pop-mdl" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000;" >
+<script id="popperoo" type="text/html">
+<div id="popperoo-div" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000;" >
   <div class="graybak" style="width:100%;height:100%;position:absolute;top:0;left:0;background-color:rgba(0,0,0,.5);cursor:pointer;-webkit-animation:fadein .5s;animation:fadein .5s;"></div>
   <div class="mdl" style="width:600px;height:400px;background-color:#f0f1f2;z-index:1;position:absolute;margin:auto;top:0;right:0;bottom:0;left:0;border-radius:4px;-webkit-animation:popin .3s;animation:popin .3s;">
     <div class="mdl-title" style="font-size:18px;background-color:#0082D3;color:#fff;padding:10px;margin:0;border-radius:4px 4px 0 0;text-align:center;">
@@ -35,15 +37,15 @@
 document.querySelectorAll('header.header').forEach((i)=>{
  //i.style.height = "50px"; 
 })
-  document.body.innerHTML += document.getElementById('popModal').innerHTML;
+  document.body.innerHTML += document.getElementById('popperoo').innerHTML;
     
-var _ouibounce = ouibounce(document.getElementById('pop-mdl'), {
+var _ouibounce = ouibounce(document.getElementById('popperoo-div'), {
   aggressive: true,
   timer: 0,
-  callback: function() { console.log('ouibounce fired!'); }
+  callback: function() { console.log('popperoo fired!'); }
 });
 document.addEventListener('click', function(event) {
-  document.getElementById('pop-mdl').style.display="none";
+  document.getElementById('popperoo-div').style.display="none";
 });    
     
   console.clear();console.log("popperoo");
