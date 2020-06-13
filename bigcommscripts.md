@@ -3,7 +3,9 @@
 #### [embed handlebars](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference)
 ```
 <script>
-console.log('prod id: {{product.id}}');
+{{#if product.id}}
+  console.log('inside ifHandleBar: {{product.id}}');
+{{/if}}
 </script>
 ```
 #### call to action   

@@ -20,6 +20,7 @@ import faker from "faker";
 import snakeCase from "snakecase-keys";
 import { testInstance } from "../modules/bigcommerce";
 import { numberUtils } from "../shared/utils/numberUtils";
+import fs from 'fs';
 
 /*getConsoleInput*/
 const readline = require("readline");
@@ -27,8 +28,8 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-type validCmds = "cust"|"order"|"store"|"subs"|"fake"|"script"|"exit"
 
+type validCmds = "cust"|"order"|"store"|"subs"|"fake"|"script"|"getdir"|"exit"
 (function r(){
   rl.question('Command: ', async (cmd:string) => {
     //console.log(cmd.split(' '));
@@ -36,7 +37,7 @@ type validCmds = "cust"|"order"|"store"|"subs"|"fake"|"script"|"exit"
     let arg = command.length > 1 ? command[1]:'';
     let fnName = command[0] as validCmds;
 
-    const map = { cust, order, store, subs, fake, script}
+    const map = { cust, order, store, subs, fake, script, getdir}
 
     if (fnName == 'exit')  return rl.close();
     //if ("cust order store subs exit".includes(command[0])) await window[fnName]();//await map[command](arg);
@@ -54,6 +55,10 @@ type validCmds = "cust"|"order"|"store"|"subs"|"fake"|"script"|"exit"
   script make galingmo console.log('galingko');
   script make bchook https://iosprogee.github.io/ofni/bchook.js
   script make testerific https://testerific.appspot.com/i.js?t=hash_token
+  script make handleBaroo console.log('prodID:{{product.id}}');
+
+  script make embedme file:embed.js
+
 */
 async function script(arg:string='') {
   const ts = await TestService.getInstance();
@@ -64,12 +69,34 @@ async function script(arg:string='') {
   if( arg!='' && "0123456789".includes(arg) )
     { console.log('query:'); console.log(scripts[Number(`${arg}`)]) }
   else if(arg.includes('make'))
-    await scriptCreate(arg.split(' ')[2],arg.split(' ')[3]);
+    if(arg.split(' ')[3].includes('file:')){
+      var fName = __dirname +'/'+arg.split(' ')[3].split(':')[1];
+      if (fs.existsSync(fName)) {
+        console.log(`Reading ${arg.split(' ')[3].split(':')[1]}`);
+        var fContent = fs.readFileSync( fName,'utf8');
+        console.log(fContent,'\n');
+        if(fContent!='') await scriptCreate(arg.split(' ')[2], fContent);
+      } else  console.log(`File: ${arg.split(' ')[3].split(':')[1]} not found!`);
+    }
+    else await scriptCreate(arg.split(' ')[2],arg.split(' ')[3]);
+
+    //eo file:
+
+
   else if( arg.includes('del') ){
       console.log(`deleting: ${arg.split(' ')[2]}`);  
       await ts.bigcommerceScriptModule.remove(arg.split(' ')[2]); }
   else 
     { console.log('all:'); console.log(scripts); }
+}
+
+async function getdir(){
+  var filenames = fs.readdirSync(__dirname); 
+    
+  console.log("\nCurrent directory filenames:"); 
+  filenames.forEach(file => { 
+    console.log(file); 
+  });   
 }
 
 type validKinds = "src" | "script_tag"
@@ -84,15 +111,16 @@ async function scriptCreate(name:string='Scripter', html:string="console.log('sc
     kindred = "src";
     href = html;
     html = '';
+    console.log(`src: ${href}`);
   } else{
-    html = "<script>" + html + "</script>"
+    html = "<script>\n" + html + "\n</script>"
+    console.log(`html:\n ${html}`);
   }
-  console.log(`src: ${href}`);
-  
+
   try {
     await ts.bigcommerceScriptModule.create({
       name: name,
-      description: "Script created programatically",
+      description: "autoscript",
       kind: kindred,
       html: html,
       src: href,
@@ -102,10 +130,11 @@ async function scriptCreate(name:string='Scripter', html:string="console.log('sc
       visibility: "all_pages",
       consentCategory: "essential",
     });
+    console.log("Done!!!");
+
   } catch (err) {
     console.error(err.response.data);
   }
-  console.log("Done!!!");
 }
 
 async function cust(arg:string='') {
@@ -184,6 +213,7 @@ const generateProduct = () => {
   );
 };
 /*eo productGenerator*/
+
 
 ```
 
