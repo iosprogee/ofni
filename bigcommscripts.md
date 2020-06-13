@@ -4,7 +4,9 @@
 ```
 <script>
 {{#if product.id}}
-  console.log('inside ifHandleBar: {{product.id}}');
+  console.log('handleBaroo: prodID - {{product.id}}');
+{{else}}
+  console.log('handleBaroo: no product.id!'); 
 {{/if}}
 </script>
 ```
