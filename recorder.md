@@ -58,6 +58,8 @@ type validCmds = "cust"|"order"|"store"|"subs"|"fake"|"script"|"getdir"|"exit"
   script make handleBaroo console.log('prodID:{{product.id}}');
 
   script make embedme file:embed.js
+    //-- test script for embedding to BC --//
+    console.log('embedded embed.js');
 
 */
 async function script(arg:string='') {
