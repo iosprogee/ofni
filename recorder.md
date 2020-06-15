@@ -109,12 +109,14 @@ async function scriptCreate(name:string='Scripter', html:string="console.log('sc
   let kindred = "script_tag" as validKinds ;
 
   console.log(`Creating Script ${name}...`);
-  if (html.includes("http")){
+  if(html.includes("<script")){
+    console.log(`html:\n ${html}`);
+  }else if (html.includes("http")){
     kindred = "src";
     href = html;
     html = '';
     console.log(`src: ${href}`);
-  } else{
+  }else{
     html = "<script>\n" + html + "\n</script>"
     console.log(`html:\n ${html}`);
   }
