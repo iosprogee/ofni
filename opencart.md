@@ -52,7 +52,7 @@ sudo apt-get install mysql-server
   >  UPDATE `oc_user` set `password` = sha1( concat(`salt`, sha1( concat(`salt`, sha1('opencart1103'))))) WHERE user_id = 1
 ```
 
-#### download OpenCart(https://www.howtoforge.com/how-to-install-opencart-on-debian-10/)
+#### [download OpenCart](https://www.howtoforge.com/how-to-install-opencart-on-debian-10/)
 ```
   wget --no-hsts https://github.com/opencart/opencart/releases/download/3.0.3.3/opencart-3.0.3.3.zip
   unzip opencart-3.0.3.3.zip
@@ -67,8 +67,9 @@ sudo apt-get install mysql-server
   sudo chmod -R 775 /var/www/html/opencart/
 ```
 
-#### nano /etc/nginx/sites-available/opencart.conf
+#### configure nginx
 ```
+nano /etc/nginx/sites-available/opencart.conf
   server {
     #listen 80;
     #server_name opencart.linuxbuz.com;
