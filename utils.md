@@ -23,3 +23,5 @@
 > ```
 > $ youtube-dl -f [format-code] https://www.youtube.com/watch?v=<youtubeVideo>
 > ```
+
+#### [osx benchmark](https://www.howtoforge.com/how-to-benchmark-your-system-cpu-file-io-mysql-with-sysbench)

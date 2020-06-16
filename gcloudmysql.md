@@ -11,6 +11,7 @@ gcloud config set project close-cart-280510
 gcloud sql connect closecart --user=root
 
 ```
+##### [mysql instance](https://console.cloud.google.com/sql/instances?project=close-cart-280510&cloudshell=false)
 
 <!--
   bitnami opencart-1 deployment (admin/opencart1103)
@@ -37,5 +38,5 @@ update `oc_user` set `password` = sha1( concat(`salt`, sha1( concat(`salt`, sha1
 ### ssh to VM
 cd /apps/opencart/htdocs
 
-grep btn-grp catalog/view/theme/default/template/common/home.twig
+grep "btn-group" catalog/view/theme/default/stylesheet/stylesheet.css
 -->
