@@ -118,10 +118,10 @@ sudo service php7.3-fpm restart
 mv /var/www/html/opencart/system/storage/ /var/www/html/storage/
 ```
 #### change /var/www/html/opencart/config.php & admin/config.pgp
-- change define('DIR_STORAGE', DIR_SYSTEM . 'storage/'); 
-- to define('DIR_STORAGE', '/var/www/html/storage/');
+- change `define('DIR_STORAGE', DIR_SYSTEM . 'storage/');` 
+- to `define('DIR_STORAGE', '/var/www/html/storage/');`
 
-- nano /var/www/html/opencart/admin/model/localisation/currency.php on line 141
+- `nano /var/www/html/opencart/admin/model/localisation/currency.php` on line 141
 - because line: 124 /var/www/html/opencart/admin/model/localisation/currency.php doesnt work anymore
 
 #### [simple module](https://stackoverflow.com/questions/13208488/how-to-make-a-simple-module-in-opencart-example-getting-latest-posts-from-wordp)
@@ -144,10 +144,11 @@ mv /var/www/html/opencart/system/storage/ /var/www/html/storage/
   sudo sed -i 's/theme_default/theme_artheme/g' admin/view/template/extension/theme/artheme.twig
 ```
 
-- Goto http://localhost/admin 
-  >Extension >Extension >Set Filter Themes >Select Action on Artheme >Install
+- goto http://localhost/admin
+```
+  >Extension >Extension >Set Filter Themes >Select Action on Artheme >Install   
   >System >Settings >Edit >Select Artheme > Save
-
+```
 - Check on chrome devtools if the css points to /catalog/view/theme/artheme/stylesheet/stylesheet.css
 - @ /catalog/view/theme/artheme/stylesheet/stylesheet.css add:
 ```
@@ -171,3 +172,11 @@ mv /var/www/html/opencart/system/storage/ /var/www/html/storage/
   sudo grep -rn catalog/view/theme/artheme/template/ -e "product-category"
   sudo sed -i 's/class="container/class="container-fluid/g' catalog/view/theme/artheme/template/product/category.twig
 ```
+
+#### enable SEO URLs 
+- goto Admin Page -> System -> Settings  
+- click on "Edit"  
+- click on “Server” tab  
+- scroll to “Use SEO URL’s”  
+- tick on “Yes”   
+- click on "Save"  
