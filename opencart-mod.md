@@ -1,4 +1,5 @@
 #### [develop modules](http://docs.opencart.com/en-gb/developer/module/)
+#### [optimize code](https://webkul.com/blog/optimize-your-opencart-code/)
 
 #### enable SEO URLs 
 - goto Admin Page -> System -> Settings  

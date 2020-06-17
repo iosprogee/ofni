@@ -35,4 +35,8 @@
 > ```
 > $ find . | grep ".DS_Store"| xargs rm
 > ```
+#### find files & count
+> ```
+> $ find . -type f | wc -l
+> ```
 

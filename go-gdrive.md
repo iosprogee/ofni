@@ -14,6 +14,14 @@
 ```
  $ ~/go/bin/gdrive upload -p 1xKp1cu7zv7SoZQLj-l_vP-nva0BXajZf -r info
 ```
+#### make newfolder on Codes->gaePHP
+```
+ $ ~/go/bin/gdrive mkdir -p 1xKp1cu7zv7SoZQLj-l_vP-nva0BXajZf newfolder
+```
+#### delete file or folder (recursively)
+```
+ $ ~/go/bin/gdrive delete -r <fileId>
+```
 #### gdrives
 - [codes > gaePHP](https://drive.google.com/drive/folders/1xKp1cu7zv7SoZQLj-l_vP-nva0BXajZf)
 - [INFO](https://drive.google.com/drive/folders/1VkFWrO0NVdq9n0eG2mkutCx_1SHdR5In)
