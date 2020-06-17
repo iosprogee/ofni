@@ -25,3 +25,14 @@
 > ```
 
 #### [osx benchmark](https://www.howtoforge.com/how-to-benchmark-your-system-cpu-file-io-mysql-with-sysbench)
+
+#### iterm2
+> ```
+> $ brew cask install iterm2
+> ```
+
+#### find all .DS_Store & delete it
+> ```
+> $ find . | grep ".DS_Store"| xargs rm
+> ```
+

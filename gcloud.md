@@ -1,4 +1,3 @@
-
 #### install gcloud
 ```
   $ curl https://sdk.cloud.google.com | bash
@@ -27,7 +26,6 @@
 >    | Installed     | BigQuery Command Line Tool             | bq                 |   < 1 MiB|    
 >    | Installed     | Cloud SDK Core Libraries               | core               |  10.5 MiB|    
 >    | Installed     | Cloud Storage Command Line Tool        | gsutil             |   3.8 MiB|    
-
   
 #### enable spreadsheet api
   - Go to the Google APIs Console.
