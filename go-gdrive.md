@@ -1,4 +1,4 @@
-### [gdrive](https://github.com/gdrive-org/gdrive) - gdrive cli
+#### [gdrive](https://github.com/gdrive-org/gdrive) - gdrive cli
 
 #### install
 ```
@@ -10,7 +10,10 @@
  $ gdrive list --query " 'root' in parents"
  $ gdrive list --query " '1xKp1cu7zv7SoZQLj-l_vP-nva0BXajZf' in parents"
 ```
-#### install
+#### upload info folder recursively to codes >gaePHP
 ```
  $ ~/go/bin/gdrive upload -p 1xKp1cu7zv7SoZQLj-l_vP-nva0BXajZf -r info
 ```
+#### gdrives
+- [codes > gaePHP](https://drive.google.com/drive/folders/1xKp1cu7zv7SoZQLj-l_vP-nva0BXajZf)
+- [INFO](https://drive.google.com/drive/folders/1VkFWrO0NVdq9n0eG2mkutCx_1SHdR5In)
