@@ -10,7 +10,7 @@
  $ gdrive list --query " 'root' in parents"
  $ gdrive list --query " '1xKp1cu7zv7SoZQLj-l_vP-nva0BXajZf' in parents"
 ```
-#### upload info folder recursively to codes >gaePHP
+#### upload info folder recursively to Codes->gaePHP
 ```
  $ ~/go/bin/gdrive upload -p 1xKp1cu7zv7SoZQLj-l_vP-nva0BXajZf -r info
 ```
