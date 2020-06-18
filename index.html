@@ -85,14 +85,15 @@
     fetch(filename)
       .then(res => res.text())
       .then(txt => {
-        document.getElementById('content').innerHTML = marked(txt);
-        document.querySelectorAll('pre code').forEach((block) => {
-          hljs.highlightBlock(block);
-        });
-        console.log('fetched!');
-        runJS();
-        a2TrgtBlnk();
-
+        if(txt!=''){
+          document.getElementById('content').innerHTML = marked(txt);
+          document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+          });
+          console.log('fetched!');
+          runJS();
+          a2TrgtBlnk();
+        }else console.log('doesnt exist!');
       });
 
     function runJS(){ //execute script on the MD if exist
@@ -140,7 +141,7 @@
       for (var i in ancor) {
         if(typeof ancor[i].setAttribute !== "undefined") {
           ancor[i].setAttribute('target', '_blank');
-          console.log(`a2TrgtBlnk: ${ancor[i]}`);
+          //console.log(`a2TrgtBlnk: ${ancor[i]}`);
         }
       }
 
