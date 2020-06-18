@@ -1,10 +1,8 @@
 
 #### gcloud opencart (bitnami)
-  ##### [store admin](https://34.87.185.68/admin/index.php?route=common/dashboard)
-  ##### [store front](http://34.87.185.68/index.php?route=common/home)
-
-  ##### [deployment manager](https://console.cloud.google.com/dm/deployments/details/opencart-1?project=close-cart-280510)
-  ##### [ssh connect to vm instance](https://ssh.cloud.google.com/projects/close-cart-280510/zones/asia-southeast1-a/instances/opencart-1-vm)
+| |---:  |  |---: |
+| ##### [store admin](https://34.87.185.68/admin/index.php?route=common/dashboard)| ##### [store front](http://34.87.185.68/index.php?route=common/home) |  
+| ##### [deployment manager](https://console.cloud.google.com/dm/deployments/details/opencart-1?project=close-cart-280510) |  ##### [ssh connect to vm instance](https://ssh.cloud.google.com/projects/close-cart-280510/zones/asia-southeast1-a/instances/opencart-1-vm) |
 
 #### gcloud mysql closecart   
 ```
@@ -47,8 +45,8 @@ sudo grep -rnw /opt/bitnami/apache2/conf/ -e "opencart"
   /opt/bitnami/apache2/conf/bitnami/bitnami-apps-prefix.conf:2:Include "/opt/bitnami/apps/opencart/conf/httpd-prefix.conf"
 ```
 
-### [connect to gcloud ssh](https://cloud.google.com/compute/docs/instances/connecting-advanced#provide-key)
-### [add ssh keys](https://cloud.google.com/compute/docs/instances/managing-instance-access#add_oslogin_keys)
+#### [connect to gcloud ssh](https://cloud.google.com/compute/docs/instances/connecting-advanced#provide-key)
+#### [add ssh keys](https://cloud.google.com/compute/docs/instances/managing-instance-access#add_oslogin_keys)
 ```
 gcloud compute os-login ssh-keys add --key-file key-file-path  --ttl expire-time
 ```    
