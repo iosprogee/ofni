@@ -84,7 +84,7 @@
 
     fetch(filename)
       .then( res => {
-        if (!res.ok) throw Error(res.statusText);
+        if (!res.ok) console.log(`error: ${res.statusText}`); //throw Error(res.statusText);
         return res.text();
       }).then( txt => {
         console.log(`fetched: ${filename}`);
