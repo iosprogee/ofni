@@ -85,10 +85,13 @@
     fetch(filename)
       .then( res => {
         if (!res.ok) {
-          console.log(`error: ${res.statusText}`); 
-          throw Error(res.statusText);
+          console.log('fetch error'); 
+          //throw Error(res.statusText);
+          return ''
         } else return res.text();
-      }).then( txt => {
+      })
+      .then( txt => {
+        if (txt=='')  return;
         console.log(`fetched: ${filename}`);
         document.getElementById('content').innerHTML = marked(txt);
         document.querySelectorAll('pre code').forEach((block) => {
@@ -96,9 +99,10 @@
         });
         runJStag();
         a2TrgtBlnk();
-      }).catch( error => {
+      });
+      //.catch( error => {
         // console.log(error);
-    });
+    //});
 
     function runJStag(){ //execute script on the MD if exist
       if(document.getElementById('jsTAG')){ 
