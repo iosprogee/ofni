@@ -85,7 +85,7 @@
     fetch(filename)
       .then( res => {
         if (!res.ok) throw Error(res.statusText);
-        return res;
+        return res.text();
       }).then( txt => {
         console.log(`fetched: ${filename}`);
         document.getElementById('content').innerHTML = marked(txt);
