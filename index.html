@@ -84,8 +84,10 @@
 
     fetch(filename)
       .then( res => {
-        if (!res.ok) console.log(`error: ${res.statusText}`); //throw Error(res.statusText);
-        return res.text();
+        if (!res.ok) {
+          console.log(`error: ${res.statusText}`); 
+          throw Error(res.statusText);
+        } else return res.text();
       }).then( txt => {
         console.log(`fetched: ${filename}`);
         document.getElementById('content').innerHTML = marked(txt);
@@ -95,7 +97,7 @@
         runJStag();
         a2TrgtBlnk();
       }).catch( error => {
-        console.log(error);
+        // console.log(error);
     });
 
     function runJStag(){ //execute script on the MD if exist
