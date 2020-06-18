@@ -83,29 +83,31 @@
     //console.log(`loding:${filename}`);
 
     fetch(filename)
-      .then(res => res.text())
-      .then(txt => {
-        if(txt!=''){
-          document.getElementById('content').innerHTML = marked(txt);
-          document.querySelectorAll('pre code').forEach((block) => {
-            hljs.highlightBlock(block);
-          });
-          console.log('fetched!');
-          runJS();
-          a2TrgtBlnk();
-        }else console.log('doesnt exist!');
-      });
+      .then( res => {
+        if (!res.ok) throw Error(res.statusText);
+        return res;
+      }).then( txt => {
+        console.log(`fetched: ${filename}`);
+        document.getElementById('content').innerHTML = marked(txt);
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
+        runJStag();
+        a2TrgtBlnk();
+      }).catch( error => {
+        console.log(error);
+    });
 
-    function runJS(){ //execute script on the MD if exist
+    function runJStag(){ //execute script on the MD if exist
       if(document.getElementById('jsTAG')){ 
         var jsScript = document.getElementById('jsTAG').innerHTML;  // "alert('HellO'); var x=100";
         var jsExcScr = new Function (jsScript);
         try {
-          console.log(`runJS:\n ${jsScript}`);
+          console.log(`runJStag:\n ${jsScript}`);
           return (jsExcScr());
         }
         catch(err) {
-          console.log(`runJS Error:\n ${err.message}`);
+          console.log(`runJStag Error:\n ${err.message}`);
         }        
       }    
     }      
