@@ -1,13 +1,13 @@
 #### bigcommerce  
-  - [34,876{us}](https://trends.builtwith.com/shop/BigCommerce/United-States)  
-  - [22{ph}](https://trends.builtwith.com/websitelist/BigCommerce/Philippines)  
+  - [demo store](https://recorder-sandbox.mybigcommerce.com/)  
+  - [demo admin](https://recorder-sandbox.mybigcommerce.com/manage)  
+  - [34,876{us}](https://trends.builtwith.com/shop/BigCommerce/United-States)    
+  - [22{ph}](https://trends.builtwith.com/websitelist/BigCommerce/Philippines)   
 
     https://carewell.com  
-
     https://medicalsuppliesdepot.com.ph  
     https://farmery.ph/  
     https://thepinkshoppe.com/checkout  
-
     https://japanichi.com.ph/  
     https://freshlypicked.sg/  
 
@@ -53,6 +53,11 @@
 -->
 
 #### opencart  
+  - [demo storefront](https://demo.opencart.com/)  
+  - [demo admin](https://demo.opencart.com/admin/)  
+  - [developing modules](http://docs.opencart.com/en-gb/developer/module/)    
+  - [docker](https://hub.docker.com/r/vimagick/opencart/)  
+
   - [123{ph}](https://trends.builtwith.com/websitelist/OpenCart/Philippines)  
       shop.globe.com.ph  
       689properties.com.ph  
@@ -68,16 +73,35 @@
       fingertec.ph  
       alatoneplastics.com.ph  
       dfreshly.ph  
-  - [developing modules](http://docs.opencart.com/en-gb/developer/module/)    
-  - [demo storefront](https://demo.opencart.com/)  
-  - [demo admin](https://demo.opencart.com/admin/)  
-  - [docker](https://hub.docker.com/r/vimagick/opencart/)  
-  - circuit.rocks   
 
+#### prestashop  
+  - [demo store](https://demo.prestashop.com/#/en/front)  
+  - [demo admin](https://demo.prestashop.com/#/en/back)  
+  - [developers](https://www.prestashop.com/en/developers)  
+  - [docker](https://github.com/yobasystems/alpine-prestashop)  
+  - [demo 2.3.0.2](https://gdprdemo.willowdigital.com/opencart2/index.php)  
+  - [51{ph}](https://trends.builtwith.com/websitelist/PrestaShop/Philippines)  
+
+<!--  
+      farmuraagrivet.ph  
+      babyoutlet.ph  
+      feral.ph  
+      in2it.com.ph  
+      instant.com.ph  
+      allheadphones.com.ph  
+      benstore.com.ph  
+      jbsports.com.ph  
+      onlinestore.fvp.ph  
+      jetclean.com.ph  
+-->      
 
 #### shopify   
+  - [developers](https://shopify.dev/concepts/shopify-introduction)  
+  - [dev docs](https://devdocs.prestashop.com/1.7/basics/introduction/)  
+
   - [909,637{us}](https://trends.builtwith.com/shop/Shopify/United-States)  
   - [1,297{ph}](https://trends.builtwith.com/websitelist/Shopify/Philippines)  
+<!--  
       amrag.com  
       mydomesticity.com  
       widgetcity.com.ph  
@@ -93,32 +117,15 @@
       ibrowseandbuy.com.ph  
       acmejewelry.com.ph  
       icandypro.ph  
-  - [developers](https://shopify.dev/concepts/shopify-introduction)  
-  - [devdocs](https://devdocs.prestashop.com/1.7/basics/introduction/)  
-
-#### prestashop  
-  - [51{ph}](https://trends.builtwith.com/websitelist/PrestaShop/Philippines)  
-<!--  
-      farmuraagrivet.ph  
-      babyoutlet.ph  
-      feral.ph  
-      in2it.com.ph  
-      instant.com.ph  
-      allheadphones.com.ph  
-      benstore.com.ph  
-      jbsports.com.ph  
-      onlinestore.fvp.ph  
-      jetclean.com.ph  
--->      
-  - [developers](https://www.prestashop.com/en/developers)  
-  - [demo](https://demo.prestashop.com/#/en/front)  
-  - [docker](https://github.com/yobasystems/alpine-prestashop)  
+-->
 
 #### others  
+  - woocomerce  
+    [demo](http://gdprdemo.willowdigital.com/woocommerce/)  
   - magento  
-      [bench shop](https://shop.bench.com.ph/)  
+    [bench shop](https://shop.bench.com.ph/)  
   - shopify  
-      [penshoppe](https://www.penshoppe.com/)   
+    [penshoppe](https://www.penshoppe.com/)   
 
 
 
