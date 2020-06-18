@@ -31,12 +31,8 @@
 > $ brew cask install iterm2
 > ```
 
-#### find all .DS_Store & delete it
+#### tmplate
 > ```
-> $ find . | grep ".DS_Store"| xargs rm
-> ```
-#### find files & count
-> ```
-> $ find . -type f | wc -l
+> 
 > ```
 

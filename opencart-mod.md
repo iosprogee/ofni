@@ -55,24 +55,62 @@
   sudo grep -rn catalog/view/theme/artheme/template/ -e "product-category"
   sudo sed -i 's/class="container/class="container-fluid/g' catalog/view/theme/artheme/template/product/category.twig
 ```
-
+ ## color change
  sudo sed -i 's/#303030/rgba(19,32,58,1)/g' catalog/view/theme/artheme/stylesheet/stylesheet.css
  sudo sed -i 's/#229ac8/rgba(58,88,173,1)/g' catalog/view/theme/artheme/stylesheet/stylesheet.css
+
+ sudo sed -i 's/#23a1d1/#1565c0/g' catalog/view/theme/artheme/stylesheet/stylesheet.css
+ sudo sed -i 's/#1f90bb/#0d47a1/g' catalog/view/theme/artheme/stylesheet/stylesheet.css
+ sudo sed -i 's/#333/#455a64/g' catalog/view/theme/artheme/stylesheet/stylesheet.css
+ sudo sed -i 's/#666/#37474f/g' catalog/view/theme/artheme/stylesheet/stylesheet.css
+
+ sudo sed -i 's/#EEEEEE/#37568c/g' catalog/view/theme/artheme/stylesheet/stylesheet.css
+    border-bottom: 1px solid #e2e2e2;
+
+ ## top-links a
+ sudo sed -i 's/color: #888/color: #F8F8F8/g' catalog/view/theme/artheme/stylesheet/stylesheet.css
+ sudo sed -i 's/text-shadow: 0 1px 0 #FFF;/text-shadow: 0 1px 0 #A8A8A8/g' catalog/view/theme/artheme/stylesheet/stylesheet.css
+
+
+ ## button-group
+ sudo sed -i 's/border-top: 1px solid #ddd/border-top: 1px solid #27467c/g' catalog/view/theme/artheme/stylesheet/stylesheet.css
+ sudo sed -i 's/background-color: #eee/background-color: #37568c/g' catalog/view/theme/artheme/stylesheet/stylesheet.css
+
+    
 <!--
 background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
 background-repeat: repeat-x;
 border-color: #1f90bb #1f90bb #145e7a;
 -->
 
+#### remove Bitnami banner
+```
+## disable banner
+  sudo touch /opt/bitnami/apps/bitnami/banner/disable-banner
+
+##discover where banner is
+  grep -rn apps/opencart/ -e "bitnami"
+  cat /opt/bitnami/apps/bitnami/banner/conf/banner-substitutions.conf
+
+## does not work even if script was replaced
+  sudo sed -i 's#<script type="text/javascript" src="/bitnami/banner.js">#<script>#g' /opt/bitnami/apps/bitnami/banner/conf/banner-substitutions.conf
+```
+
 #### remove Powered by
 ```
-sudo grep -rn catalog/language/  -e "powered"
+## replace text_powered
+sudo sed -i "s#\$\_\['text_powered'\]#\$\_\['text_powered'\] = ''; //#g" catalog/language/en-gb/common/footer.php
+
+## discover where power is
+grep -n catalog/language/en-gb/common/footer.php -e "powered"
 catalog/language/en-gb/common/footer.php:17:$_['text_powered'] = 'Powered By <a href="http://www.opencart.com">OpenCart</a><br /> %s &copy; %s';
+## check sed is working
+sed "s#\$\_\['text_powered'\]#\$\_\['text_powered'\] = ''; //#g" catalog/language/en-gb/common/footer.php > ~/temp
+sed '17q;d' ~/temp
 
-sudo nano catalog/view/theme/artheme/template/common/footer.twig
-
-sudo grep -rn catalog -e "bitnami-banner"
 ```
+#### [regex tester](https://www.regexpal.com/27540)
+
 
 #### [starter module](https://github.com/settysantu/starter-module)
 
