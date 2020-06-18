@@ -137,7 +137,12 @@
       // markdown {:target="_blank"} doesnt work
       // so transform all anchors to target blank
       var ancor = document.getElementsByTagName('a'); 
-      for (var i in ancor) if(typeof ancor[i].setAttribute !== "undefined") ancor[i].setAttribute('target', '_blank');
+      for (var i in ancor) {
+        if(typeof ancor[i].setAttribute !== "undefined") {
+          ancor[i].setAttribute('target', '_blank');
+          console.log(`target2Blank: ${ancor[i]}`);
+        }
+      }
 
     }
 
