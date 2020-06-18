@@ -91,6 +91,7 @@
         });
         console.log('fetched!');
         runJS();
+        a2TrgtBlnk();
 
       });
 
@@ -99,18 +100,17 @@
         var jsScript = document.getElementById('jsTAG').innerHTML;  // "alert('HellO'); var x=100";
         var jsExcScr = new Function (jsScript);
         try {
+          console.log(`runJS:\n ${jsScript}`);
           return (jsExcScr());
         }
         catch(err) {
-          console.log(`Error:${err.message}`);
+          console.log(`runJS Error:\n ${err.message}`);
         }        
       }    
     }      
 
     window.addEventListener('load',function(){   
       window.setTimeout(function (){  //console.log(`loding:${file}`);
-        runJS();
-        a2TrgtBlnk();
 
         /*collapsible*/
         document.querySelectorAll('button.collapsible').forEach((i)=>{  
@@ -140,7 +140,7 @@
       for (var i in ancor) {
         if(typeof ancor[i].setAttribute !== "undefined") {
           ancor[i].setAttribute('target', '_blank');
-          console.log(`target2Blank: ${ancor[i]}`);
+          console.log(`a2TrgtBlnk: ${ancor[i]}`);
         }
       }
 
