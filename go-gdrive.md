@@ -14,8 +14,9 @@
 ```
  $ ~/go/bin/gdrive upload -p 1xKp1cu7zv7SoZQLj-l_vP-nva0BXajZf -r info
 ```
-#### make newfolder on Codes->gaePHP
+#### make newfolder on MyDrive / Codes->gaePHP
 ```
+ $ ~/go/bin/gdrive mkdir -p root newfolder
  $ ~/go/bin/gdrive mkdir -p 1xKp1cu7zv7SoZQLj-l_vP-nva0BXajZf newfolder
 ```
 #### delete file or folder (recursively)
