@@ -4,11 +4,15 @@
   $ cd ~/google-cloud-sdk
   $ ./install.sh
   $ bin/gcloud init
+  $ gcloud init --console-only
   $ cd ~
   $ gcloud components install app-engine-php
   $ gcloud components update
 
 ```
+<!-- 
+wget https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.tar.gz
+-->
 #### install | remove components
 ```
   $ gcloud components install <COMPONENT_ID>
