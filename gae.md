@@ -21,6 +21,10 @@
   ```
   $ gcloud app deploy app.yaml --project=<projname> --version=1
   ```
+#### deploy (using appcfg.py)
+  ```
+  $ appcfg.py --oauth2_credential_file=~/.appcfg_oauth2_tokens update ../<projectFolder>  
+  ```
 #### run dev server
   ```
   $ dev_appserver.py ../k1mathadd  _[OR]_   
@@ -39,7 +43,7 @@
   $ gcloud auth login
   $ gcloud projects list
   ```
-#### recover gae source
+#### recover/download gae source
   ```
   $ appcfg.py download_app -A <projectname> <folder>
   $ appcfg.py download_app -A beearvee beearveeBak
