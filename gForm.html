@@ -1,0 +1,113 @@
+<!-- 
+	https://wiki.base22.com/btg/send-data-to-google-docs-using-a-web-form-and-ajax-72942000.html
+-->
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8' />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+*{
+	font-family: 'Roboto', sans-serif;
+}
+textarea{
+	font-size: 1.2em;
+	width: 100%;
+}
+</style>
+</head>
+<body>
+	<fieldset>
+		<legend><strong>Google Form No IFrame</strong></legend>
+		<form id="form" target="_self" onsubmit="" action="javascript: postToGoogle()">
+			<fieldset>
+				<legend>Radio</legend>
+				<input type="radio" value="Yes" name="qs1" /> YES
+				<input type="radio" value="No" name="qs1" /> NO
+			</fieldset>
+			<fieldset>
+				<legend>Text</legend>
+				<textarea name="feed"></textarea>
+			</fieldset>
+			<br>
+			<button type="submit">Send</button>
+		</form>
+		<p>The <a href="https://docs.google.com/spreadsheets/d/1hRLdCo3szZlfsOnl7Q9f5zc6XY20uATSAwZBhrEz098/pubhtml">Result</a>
+		About 5 minutes to sync with gSheet</p>
+	</fieldset>
+
+	<script>			
+	function postToGoogle() {
+		var field1 = $("input[type='radio'][name='qs1']:checked").val();
+		var field2 = $("[name='feed']").val();
+/*
+search for "entry." input type hidden
+on https://docs.google.com/forms/d/e/<formId>/viewform
+*/
+		$.ajax({
+			url: "https://docs.google.com/forms/d/e/1FAIpQLSfo0LN8yjzv7UjPdHNTb48tgFqWs1V9mQxnr1NprnEQo4e8IQ/formResponse",
+			data: {
+				"entry.1486067197": field1,
+				"entry.1806670355": field2
+			},
+			type: "POST",
+			dataType: "xml",
+			statusCode: {
+				0: function() {
+					//Success message
+					alert("Success!");
+				},
+				200: function() {
+					//Success Message
+					alert("Success!");
+				}
+			}
+		});
+	}
+
+	/*
+	$(document).ready(function() {
+		$('#form').submit(function() {
+			postToGoogle();
+			return false;
+		});
+	});
+	*/
+	</script>
+  </body>
+</html>
+
+<!--
+
+	      var calendar = new FullCalendar.Calendar(calendarEl, {
+					plugins: [ 'dayGrid' ],
+					defaultView: 'dayGridMonth',										
+
+					googleCalendarApiKey: 'AIzaSyChPka5H5hSiZstSIepxrohTF15mX4E7rc',
+					events: {
+						googleCalendarId: '6ice3v69ak7tko6std4693o7ho@group.calendar.google.com',
+						eventRender: function(info) {
+							var e = info.event._def
+							console.log(e.extendedProps.description, e.title)
+							var tooltip = new Tooltip(info.el, {
+								title: info.event.extendedProps.description,
+								placement: 'top',
+								trigger: 'hover',
+								container: 'body'
+							});
+						}					
+					},
+					initialView: 'dayGridWeek', 
+		      schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives'
+				});
+				
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+					plugins: [ 'dayGrid' ],
+					defaultView: 'dayGridMonth',					
+					initialView: 'dayGridWeek', //'dayGridMonth', 'listWeek', 'resourceTimelineWeek',
+		      schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives'
+        });
+	
+-->
