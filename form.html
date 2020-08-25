@@ -46,7 +46,7 @@ function postToGoogle() {
 search for "entry." input type hidden
 on https://docs.google.com/forms/d/e/<formId>/viewform
 */
-
+/*
 	let formdata =  {
 		"entry.1486067197": field1,
 		"entry.1806670355": field2
@@ -60,7 +60,7 @@ on https://docs.google.com/forms/d/e/<formId>/viewform
 		body: JSON.stringify(formdata)
 	});
 	let result = await response.json();
-
+*/
 	$.ajax({
 		url: "https://docs.google.com/forms/d/e/1FAIpQLSfo0LN8yjzv7UjPdHNTb48tgFqWs1V9mQxnr1NprnEQo4e8IQ/formResponse",
 		data: formdata,
