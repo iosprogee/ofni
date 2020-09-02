@@ -26,7 +26,7 @@ wget https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.tar.gz
 ```
   $ gcloud components install alpha
   $ gcloud alpha cloud-shell ssh
-  $ gcloud alpha cloud-shell scp cloudshell:~/<remoteDIR> localhost:~/<localDIR>
+  $ gcloud alpha cloud-shell scp cloudshell:~/file.zip localhost:file.zip
 ```
 #### view html in cmdline
 ```
