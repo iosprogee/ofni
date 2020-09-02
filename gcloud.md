@@ -26,8 +26,14 @@ wget https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.tar.gz
 ```
   $ gcloud components install alpha
   $ gcloud alpha cloud-shell ssh
-  
+  $ gcloud alpha cloud-shell scp cloudshell:~/<remoteDIR> localhost:~/<localDIR>
 ```
+#### view html in cmdline
+```
+  $ sudo apt install w3m | brew install w3m
+  $ w3m -dump https://iosprogee.github.io/ofni/gcloud.md | less
+```
+
 #### sample components & id list 
 >    |     Status    |                  Name                  |            ID      |    Size  |
 >    |     :---      |                 :---                   |           :---     |    ---:  |    
