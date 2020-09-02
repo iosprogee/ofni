@@ -1,0 +1,148 @@
+<!-- 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Material Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="shortcut icon" sizes="16x16" href="https://ssl.gstatic.com/docs/spreadsheets/forms/favicon_qp2.png" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+<style>
+@media print {
+    html, body {
+       display: none;  /* hide whole page */
+    }
+}  
+* {
+  font-family: "Roboto", sans-serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mdl-card {
+  width: 320px;
+  height: 320px;
+}
+</style>
+</head>
+<body>
+  <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+    <main class="mdl-layout__content">
+      <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+           <h2 class="mdl-card__title-text">Auckland Sky Tower<br>Auckland, New Zealand</h2>
+        </div>
+        <div class="mdl-card__media">
+          <img src="https://getmdl.io/assets/demos/welcome_card.jpg" width="173" height="157" border="0" alt=""
+           style="padding:10px;">
+        </div>
+        <div class="mdl-card__supporting-text">
+        The Sky Tower is an observation and telecommunications tower located in Auckland,
+        New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure
+        in the Southern Hemisphere.
+        </div>
+        <div class="mdl-card__actions">
+           <a href="http://en.wikipedia.org/wiki/Sky_Tower_%28Auckland%29">Wikipedia entry</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+ 
+<script>
+/*
+search for "entry." input type hidden
+on https://docs.google.com/forms/d/e/<formId>/viewform
+
+    <form id="form" target="_self" onsubmit="" action="javascript:submitForm()">
+      <fieldset>
+        <legend>Radio</legend>
+        <input type="radio" value="Yes" name="qs1" /> YES
+        <input type="radio" value="No" name="qs1" /> NO
+      </fieldset>
+      <fieldset>
+        <legend>Text</legend>
+        <textarea name="feed"></textarea>
+      </fieldset>
+      <br />
+      <!-- <button type="submit">Send</button>  -->
+      <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        Send
+      </button>
+    </form>
+
+*/
+
+  var formId = "1FAIpQLSfo0LN8yjzv7UjPdHNTb48tgFqWs1V9mQxnr1NprnEQo4e8IQ";
+  async function submitForm(answer = "") {
+    //var field1 = $("input[type='radio'][name='qs1']:checked").val();
+    //var field2 = $("[name='feed']").val();
+    var field1 = document.querySelectorAll('input[type="radio"][name="qs1"]:checked')[0].value;
+    var field2 = document.querySelectorAll("[name='feed']")[0].value;
+
+    console.log('Values:',field1,field2);
+    return
+
+    formdata =
+      "entry.1486067197=" +
+      encodeURIComponent(field1) +
+      "&entry.1806670355=" +
+      encodeURIComponent(field2);
+    var queryString = "/formResponse?" + formdata + "&submit=SUBMIT";
+    var url = "https://docs.google.com/forms/d/e/" + formId + queryString;
+    var options = {
+      method: "POST",
+      mode: "no-cors", // apparently Google will only submit a form if "mode" is "no-cors"
+      redirect: "follow",
+      referrer: "no-referrer",
+    };
+    let response = await fetch(url, options);
+    if (response.ok) {
+      let json = await response.json();
+      console.log(json);
+    } else {
+      console.log("HTTP-Error: " + response.status);
+    }
+  }
+
+document.addEventListener('keyup', function (e) {
+  var key = event.keyCode || event.charCode || 0;
+  console.log(key, event.metaKey);
+
+/*  if (e.shiftKey && e.metaKey) {
+    console.log('With ctrl or cmd or windows, do something...');
+    copyToClipboard();
+    return;
+  }
+*/  
+});
+
+function copyToClipboard() {
+  var aux = document.createElement("input");
+  aux.setAttribute("value", "print screen disabled!");      
+  document.body.appendChild(aux);
+  aux.select();
+  document.execCommand("copy");
+  // Remove it from the body
+  document.body.removeChild(aux);
+  alert("Print screen disabled!");
+}
+
+
+</script>
+</body>
+
+</html>
+

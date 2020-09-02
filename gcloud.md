@@ -22,6 +22,12 @@ wget https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.tar.gz
 ```
   $ gcloud components update
 ```
+#### ssh to cloud-shell
+```
+  $ gcloud components install alpha
+  $ gcloud alpha cloud-shell ssh
+  
+```
 #### sample components & id list 
 >    |     Status    |                  Name                  |            ID      |    Size  |
 >    |     :---      |                 :---                   |           :---     |    ---:  |    
