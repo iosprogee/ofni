@@ -21,10 +21,21 @@
   ```
   $ gcloud app deploy app.yaml --project=<projname> --version=1
   ```
-#### deploy (using appcfg.py)
+#### deploy (using appcfg.py) using stored token
   ```
   $ appcfg.py --oauth2_credential_file=~/.appcfg_oauth2_tokens update ../<projectFolder>  
   ```
+#### reset token then run appcfg to prompt for credentials
+  ```
+  $ mv ~/.appcfg_oauth2_tokens appcfg_token_email
+  $ appcfg.py update .
+  ```
+#### recover/download gae source
+  ```
+  $ appcfg.py download_app -A <projectname> <folder>
+  $ appcfg.py download_app -A beearvee beearveeBak
+  ```
+
 #### run dev server
   ```
   $ dev_appserver.py ../k1mathadd  _[OR]_   
@@ -42,11 +53,6 @@
   $ gcloud config set account <io...@gmail>
   $ gcloud auth login
   $ gcloud projects list
-  ```
-#### recover/download gae source
-  ```
-  $ appcfg.py download_app -A <projectname> <folder>
-  $ appcfg.py download_app -A beearvee beearveeBak
   ```
 
 #### php gae

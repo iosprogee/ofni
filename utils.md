@@ -30,7 +30,11 @@
 > ```
 > $ brew cask install iterm2
 > ```
-
+#### w3m
+ ```
+ brew install w3m
+ w3m --dump https://iosprogee.github.io/ofni/utils.md
+ ```
 #### tmplate
 > ```
 > 

@@ -1,0 +1,35 @@
+
+https://docs.google.com/spreadsheets/d/e/2PACX-1vTqkGu7NdGsdMCvookAIa8C5rBtD9J9PQUAi58Hw-aKE3qhwRSZqHoW8HzyqNFxjjY2WGwFNKh3sBDA/pubhtml?gid=0&single=true&widget=false&chrome=false&output=html&gridlines=false
+https://docs.google.com/spreadsheets/d/e/2PACX-1vTqkGu7NdGsdMCvookAIa8C5rBtD9J9PQUAi58Hw-aKE3qhwRSZqHoW8HzyqNFxjjY2WGwFNKh3sBDA/pubhtml?chrome=false&gid=0&gridlines=false&output=html&single=true
+
+https://docs.google.com/spreadsheets/d/e/2PACX-1vTqkGu7NdGsdMCvookAIa8C5rBtD9J9PQUAi58Hw-aKE3qhwRSZqHoW8HzyqNFxjjY2WGwFNKh3sBDA/full?alt=json
+
+https://spreadsheets.google.com/feeds/cells/11NmpDSmeYE9N0l9tmev0YHrOm_aJ-9O5vo94m_r1lQg/0/public/full?alt=json
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+<center><div id="ipadrs" style="font:60px Lato;">
+  <button id="myip" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+    MyIP
+  </button>
+</div></center>
+<script>
+document.getElementById("myip").addEventListener('click', function (e){
+  getIp();
+  event.preventDefault();
+}, false);
+
+function getIp(){
+  fetch("https://ipinfo.io/json")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (myJson) {
+      document.getElementById("ipadrs").innerHTML=myJson.ip
+    })
+    .catch(function (error) {
+      document.getElementById("ipadrs").innerHTML=`<small>Error:  ${error}</small>`;
+    });
+}
+</script>
