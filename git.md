@@ -21,6 +21,7 @@
   git add -A             #--all
   git commit -m 'all'
   #git remote add origin https://github.com/<username>/<username>.github.io
+  git remote add origin https://github.com/iosprogee/ofni
   git push origin master # popup deny 
 ```
 #### configure name, email
