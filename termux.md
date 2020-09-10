@@ -5,7 +5,13 @@
 #### [gdrive cli]()
 ```
 ```
-#### install
+#### localtunnel
+```
+ npm i -g localtunnel-termux
+ lt -v
+ lt -p 8888 -s gatoree
+```
+#### ssh
 ```
  $ pkg update
  $ pkg install openssh
@@ -27,59 +33,58 @@
 ```
 #### [termux keys](https://wiki.termux.com/wiki/Touch_Keyboard)
 ```
-Volume Up+X → Alt+X
-Volume Up+W → Up arrow key
-Volume Up+A → Left arrow key
-Volume Up+S → Down arrow key
+ Volume Up+X → Alt+X
+ Volume Up+W → Up arrow key
+ Volume Up+A → Left arrow key
+ Volume Up+S → Down arrow key
 ```
 #### [termux services](https://wiki.termux.com/wiki/Termux-services)
 ```
-pkg install termux-api
-pkg install termux-services
+ pkg install termux-api
+ pkg install termux-services
 
-sv-enable sshd
-sv up sshd
-sv status sshd
-$PREFIX/bin/service-daemon restart
+ sv-enable sshd
+ sv up sshd
+ sv status sshd
+ $PREFIX/bin/service-daemon restart
 ```
 #### remove service
 ```
-sv down telnetd
-sv-enable telnetd
-rm -rf $PREFIX/var/service/telnetd
-#### home prefix
+ sv down telnetd
+ sv-enable telnetd
+ rm -rf $PREFIX/var/service/telnetd
 ```
 ### ENV
 ```
-$ echo $HOME
-/data/data/com.termux/files/home
-$ echo $PREFIX
-/data/data/com.termux/files/usr
+ echo $HOME
+ /data/data/com.termux/files/home
+ echo $PREFIX
+ /data/data/com.termux/files/usr
 ```
 #### [tor chat](https://medium.com/alize-in-cryptoland/how-to-run-a-secure-chat-behind-tor-off-of-your-android-phone-be83a678693d)
 ```
-pkg install tor
-pkg install torsocks
+ pkg install tor
+ pkg install torsocks
 
-nano $PREFIX/etc/tor/torrc
-  ## Enable TOR SOCKS proxy
-  SOCKSPort 127.0.0.1:9050
+ nano $PREFIX/etc/tor/torrc
+   ## Enable TOR SOCKS proxy
+   SOCKSPort 127.0.0.1:9050
 
-  ## Hidden Service: SSH
-  HiddenServiceDir /data/data/com.termux/files/home/.tor/hidden_ssh
-  HiddenServicePort 22 127.0.0.1:8022
+   ## Hidden Service: SSH
+   HiddenServiceDir /data/data/com.termux/files/home/.tor/hidden_ssh
+   HiddenServicePort 22 127.0.0.1:8022
 
-  ## Hidden Service: CryptoChat
-  HiddenServiceDir /data/data/com.termux/files/home/.tor/hidden_ssh
-  HiddenServicePort 3000 127.0.0.1:80
+   ## Hidden Service: CryptoChat
+   HiddenServiceDir /data/data/com.termux/files/home/.tor/hidden_ssh
+   HiddenServicePort 3000 127.0.0.1:80
 
-mkdir -p ~/.tor/hidden_ssh
+ mkdir -p ~/.tor/hidden_ssh
 
-tor
-cat ~/.tor/hidden_ssh/hostname
+ tor
+ cat ~/.tor/hidden_ssh/hostname
 
-accessing
-torsocks ssh -p pfaojfzcqbavxtoy2pbwr3ymcotjdxqscf47lc4x25m4oi3kqesoflad.onion
+ accessing
+ torsocks ssh -p pfaojfzcqbavxtoy2pbwr3ymcotjdxqscf47lc4x25m4oi3kqesoflad.onion
 ```
 
 #### ansible install
