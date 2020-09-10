@@ -31,16 +31,20 @@ Volume Up+S → Down arrow key
 ```
 pkg install termux-api
 pkg install termux-services
-## restart termux
 
 sv-enable sshd
 sv up sshd
-sv down sshd
 sv status sshd
 $PREFIX/bin/service-daemon restart
-
 ```
+#### remove service
+```
+sv-enable telnetd
+sv down sshd
+rm -rf $PREFIX/var/service/<svname>/
 #### home prefix
+```
+### ENV
 ```
 $ echo $HOME
 /data/data/com.termux/files/home

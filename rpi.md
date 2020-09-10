@@ -18,7 +18,7 @@
 > - **reboot and login over usb**
 > ```
 >   ssh pi@raspberrypi.local  _(psswd:raspberry)_
->   ssh pi@rpi0w1.local
+>   ssh pi@rpi0w1.local (192.168.1.10)
 >   ssh pi@rpi1a.local
 > ```
 

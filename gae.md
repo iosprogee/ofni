@@ -33,7 +33,7 @@
 #### recover/download gae source
   ```
   $ appcfg.py download_app -A <projectname> <folder>
-  $ appcfg.py download_app -A beearvee beearveeBak
+  $ appcfg.py download_app -A beearvee beearveeBak  --noauth_local_webserver
   ```
 
 #### run dev server
