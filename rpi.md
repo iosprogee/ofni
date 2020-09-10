@@ -37,6 +37,16 @@
 >   }
 > ```
 
+#### [static ip](https://)
+ - ip r
+ - `nano /etc/dhcpcd.conf`
+```
+ interface wlan0
+ static ip_address=192.168.0.10/24
+ static routers=192.168.0.1
+ static domain_name_servers=8.8.8.8 
+```
+
 ---
 
 #### [install lamp](https://randomnerdtutorials.com/raspberry-pi-apache-mysql-php-lamp-server/)

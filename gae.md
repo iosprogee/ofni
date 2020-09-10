@@ -28,7 +28,7 @@
 #### reset token then run appcfg to prompt for credentials
   ```
   $ mv ~/.appcfg_oauth2_tokens appcfg_token_email
-  $ appcfg.py update .
+  $ appcfg.py update app.yaml .
   ```
 #### recover/download gae source
   ```
