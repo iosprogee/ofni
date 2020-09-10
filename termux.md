@@ -1,5 +1,10 @@
-#### [gdrive]() - gdrive cli
-
+#### diable welcome termux
+```
+ touch ~/.hushlogin
+```
+#### [gdrive cli]()
+```
+```
 #### install
 ```
  $ pkg update
@@ -39,9 +44,9 @@ $PREFIX/bin/service-daemon restart
 ```
 #### remove service
 ```
+sv down telnetd
 sv-enable telnetd
-sv down sshd
-rm -rf $PREFIX/var/service/<svname>/
+rm -rf $PREFIX/var/service/telnetd
 #### home prefix
 ```
 ### ENV
@@ -75,12 +80,10 @@ cat ~/.tor/hidden_ssh/hostname
 
 accessing
 torsocks ssh -p pfaojfzcqbavxtoy2pbwr3ymcotjdxqscf47lc4x25m4oi3kqesoflad.onion
-
 ```
 
 #### ansible install
 ```
-
 For Python3 and an explanation see [here](https://github.com/nicenemo/termux-setup/blob/master/README.md)
 The script used:
 
